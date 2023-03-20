@@ -6,7 +6,9 @@ variable "project" {}
 variable "project_id" {
   type = string
 }
-variable "credentials_file" {}
+variable "credentials_file" {
+  type = string  
+}
 
 variable "region" {
   default = "us-central1"
@@ -21,7 +23,10 @@ variable "zone" {
 ####################
 variable "pubsub_subscription_name" {
 }
-variable "topic" {
+variable "file_receive_topic" {
+  type = string
+}
+variable "dead_letter_topic" {
   type = string
 }
 ####################
