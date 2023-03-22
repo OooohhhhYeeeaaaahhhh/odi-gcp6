@@ -6,6 +6,8 @@ bucket_name              = "bucket-odi-gcp6"
 storage_class            = "REGIONAL"
 file_receive_topic          = "file_receive"
 dead_letter_topic           = "dead_letter"
+service_account_name    = "svc-odi-gcp"
+service_account_id      = "svc-odi-gcp"
 #test_topic              = "test"
 
 

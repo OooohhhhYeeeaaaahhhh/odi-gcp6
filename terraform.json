@@ -1,0 +1,1711 @@
+{
+    "format_version": "1.1",
+    "terraform_version": "1.4.2",
+    "variables": {
+        "bucket_location": {
+            "value": "us-central1"
+        },
+        "bucket_name": {
+            "value": "bucket-odi-gcp6"
+        },
+        "credentials_file": {
+            "value": "~/gcp/odi-gcp6-87e3b070774d.json"
+        },
+        "dead_letter_topic": {
+            "value": "dead_letter"
+        },
+        "file_receive_topic": {
+            "value": "file_receive"
+        },
+        "project": {
+            "value": "odi-gcp6"
+        },
+        "project_id": {
+            "value": "odi-gcp6"
+        },
+        "pubsub_subscription_name": {
+            "value": "sub-odi-gcp6"
+        },
+        "region": {
+            "value": "us-central1"
+        },
+        "service_account_id": {
+            "value": "svc-odi-gcp"
+        },
+        "service_account_name": {
+            "value": "svc-odi-gcp"
+        },
+        "storage_class": {
+            "value": "REGIONAL"
+        },
+        "zone": {
+            "value": "us-central1-c"
+        }
+    },
+    "planned_values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "google_bigquery_dataset.dataset",
+                    "mode": "managed",
+                    "type": "google_bigquery_dataset",
+                    "name": "dataset",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 0,
+                    "values": {
+                        "access": [
+                            {
+                                "dataset": [],
+                                "domain": "",
+                                "group_by_email": "",
+                                "role": "OWNER",
+                                "routine": [],
+                                "special_group": "",
+                                "view": []
+                            },
+                            {
+                                "dataset": [],
+                                "domain": "hashicorp.com",
+                                "group_by_email": "",
+                                "role": "READER",
+                                "routine": [],
+                                "special_group": "",
+                                "user_by_email": "",
+                                "view": []
+                            }
+                        ],
+                        "dataset_id": "example_dataset",
+                        "default_encryption_configuration": [],
+                        "default_partition_expiration_ms": null,
+                        "default_table_expiration_ms": 3600000,
+                        "delete_contents_on_destroy": false,
+                        "description": "This is a test description",
+                        "friendly_name": "test",
+                        "labels": {
+                            "env": "default"
+                        },
+                        "location": "EU",
+                        "max_time_travel_hours": null,
+                        "timeouts": null
+                    },
+                    "sensitive_values": {
+                        "access": [
+                            {
+                                "dataset": [],
+                                "routine": [],
+                                "view": []
+                            },
+                            {
+                                "dataset": [],
+                                "routine": [],
+                                "view": []
+                            }
+                        ],
+                        "default_encryption_configuration": [],
+                        "labels": {}
+                    }
+                },
+                {
+                    "address": "google_cloud_run_service.default",
+                    "mode": "managed",
+                    "type": "google_cloud_run_service",
+                    "name": "default",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 1,
+                    "values": {
+                        "autogenerate_revision_name": false,
+                        "location": "us-central1",
+                        "name": "cloudrun-srv",
+                        "template": [
+                            {
+                                "spec": [
+                                    {
+                                        "containers": [
+                                            {
+                                                "args": null,
+                                                "command": null,
+                                                "env": [],
+                                                "env_from": [],
+                                                "image": "us-docker.pkg.dev/cloudrun/container/hello",
+                                                "volume_mounts": [],
+                                                "working_dir": null
+                                            }
+                                        ],
+                                        "volumes": []
+                                    }
+                                ]
+                            }
+                        ],
+                        "timeouts": null,
+                        "traffic": [
+                            {
+                                "latest_revision": true,
+                                "percent": 100,
+                                "revision_name": null,
+                                "tag": null
+                            }
+                        ]
+                    },
+                    "sensitive_values": {
+                        "metadata": [],
+                        "status": [],
+                        "template": [
+                            {
+                                "metadata": [],
+                                "spec": [
+                                    {
+                                        "containers": [
+                                            {
+                                                "env": [],
+                                                "env_from": [],
+                                                "ports": [],
+                                                "resources": [],
+                                                "volume_mounts": []
+                                            }
+                                        ],
+                                        "volumes": []
+                                    }
+                                ]
+                            }
+                        ],
+                        "traffic": [
+                            {}
+                        ]
+                    }
+                },
+                {
+                    "address": "google_service_account.bqowner",
+                    "mode": "managed",
+                    "type": "google_service_account",
+                    "name": "bqowner",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 0,
+                    "values": {
+                        "account_id": "bqowner",
+                        "description": null,
+                        "disabled": false,
+                        "display_name": null,
+                        "timeouts": null
+                    },
+                    "sensitive_values": {}
+                },
+                {
+                    "address": "google_storage_bucket.default",
+                    "mode": "managed",
+                    "type": "google_storage_bucket",
+                    "name": "default",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 0,
+                    "values": {
+                        "autoclass": [],
+                        "cors": [],
+                        "custom_placement_config": [],
+                        "default_event_based_hold": null,
+                        "encryption": [],
+                        "force_destroy": false,
+                        "labels": null,
+                        "lifecycle_rule": [],
+                        "location": "US-CENTRAL1",
+                        "logging": [],
+                        "name": "bucket-odi-gcp6",
+                        "requester_pays": null,
+                        "retention_policy": [],
+                        "storage_class": "REGIONAL",
+                        "timeouts": null
+                    },
+                    "sensitive_values": {
+                        "autoclass": [],
+                        "cors": [],
+                        "custom_placement_config": [],
+                        "encryption": [],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "retention_policy": [],
+                        "versioning": [],
+                        "website": []
+                    }
+                }
+            ],
+            "child_modules": [
+                {
+                    "resources": [
+                        {
+                            "address": "module.pubsub.google_project_iam_member.token_creator_binding[0]",
+                            "mode": "managed",
+                            "type": "google_project_iam_member",
+                            "name": "token_creator_binding",
+                            "index": 0,
+                            "provider_name": "registry.terraform.io/hashicorp/google",
+                            "schema_version": 0,
+                            "values": {
+                                "condition": [],
+                                "member": "serviceAccount:service-612361867957@gcp-sa-pubsub.iam.gserviceaccount.com",
+                                "project": "odi-gcp6",
+                                "role": "roles/iam.serviceAccountTokenCreator"
+                            },
+                            "sensitive_values": {
+                                "condition": []
+                            }
+                        },
+                        {
+                            "address": "module.pubsub.google_pubsub_topic.topic[0]",
+                            "mode": "managed",
+                            "type": "google_pubsub_topic",
+                            "name": "topic",
+                            "index": 0,
+                            "provider_name": "registry.terraform.io/hashicorp/google",
+                            "schema_version": 0,
+                            "values": {
+                                "kms_key_name": null,
+                                "labels": null,
+                                "message_retention_duration": null,
+                                "name": "file_receive",
+                                "project": "odi-gcp6",
+                                "timeouts": null
+                            },
+                            "sensitive_values": {
+                                "message_storage_policy": [],
+                                "schema_settings": []
+                            }
+                        }
+                    ],
+                    "address": "module.pubsub"
+                }
+            ]
+        }
+    },
+    "resource_changes": [
+        {
+            "address": "google_bigquery_dataset.dataset",
+            "mode": "managed",
+            "type": "google_bigquery_dataset",
+            "name": "dataset",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "access": [
+                        {
+                            "dataset": [],
+                            "domain": "",
+                            "group_by_email": "",
+                            "role": "OWNER",
+                            "routine": [],
+                            "special_group": "",
+                            "view": []
+                        },
+                        {
+                            "dataset": [],
+                            "domain": "hashicorp.com",
+                            "group_by_email": "",
+                            "role": "READER",
+                            "routine": [],
+                            "special_group": "",
+                            "user_by_email": "",
+                            "view": []
+                        }
+                    ],
+                    "dataset_id": "example_dataset",
+                    "default_encryption_configuration": [],
+                    "default_partition_expiration_ms": null,
+                    "default_table_expiration_ms": 3600000,
+                    "delete_contents_on_destroy": false,
+                    "description": "This is a test description",
+                    "friendly_name": "test",
+                    "labels": {
+                        "env": "default"
+                    },
+                    "location": "EU",
+                    "max_time_travel_hours": null,
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "access": [
+                        {
+                            "dataset": [],
+                            "routine": [],
+                            "user_by_email": true,
+                            "view": []
+                        },
+                        {
+                            "dataset": [],
+                            "routine": [],
+                            "view": []
+                        }
+                    ],
+                    "creation_time": true,
+                    "default_encryption_configuration": [],
+                    "etag": true,
+                    "id": true,
+                    "labels": {},
+                    "last_modified_time": true,
+                    "project": true,
+                    "self_link": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "access": [
+                        {
+                            "dataset": [],
+                            "routine": [],
+                            "view": []
+                        },
+                        {
+                            "dataset": [],
+                            "routine": [],
+                            "view": []
+                        }
+                    ],
+                    "default_encryption_configuration": [],
+                    "labels": {}
+                }
+            }
+        },
+        {
+            "address": "google_cloud_run_service.default",
+            "mode": "managed",
+            "type": "google_cloud_run_service",
+            "name": "default",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "autogenerate_revision_name": false,
+                    "location": "us-central1",
+                    "name": "cloudrun-srv",
+                    "template": [
+                        {
+                            "spec": [
+                                {
+                                    "containers": [
+                                        {
+                                            "args": null,
+                                            "command": null,
+                                            "env": [],
+                                            "env_from": [],
+                                            "image": "us-docker.pkg.dev/cloudrun/container/hello",
+                                            "volume_mounts": [],
+                                            "working_dir": null
+                                        }
+                                    ],
+                                    "volumes": []
+                                }
+                            ]
+                        }
+                    ],
+                    "timeouts": null,
+                    "traffic": [
+                        {
+                            "latest_revision": true,
+                            "percent": 100,
+                            "revision_name": null,
+                            "tag": null
+                        }
+                    ]
+                },
+                "after_unknown": {
+                    "id": true,
+                    "metadata": true,
+                    "project": true,
+                    "status": true,
+                    "template": [
+                        {
+                            "metadata": true,
+                            "spec": [
+                                {
+                                    "container_concurrency": true,
+                                    "containers": [
+                                        {
+                                            "env": [],
+                                            "env_from": [],
+                                            "ports": true,
+                                            "resources": true,
+                                            "volume_mounts": []
+                                        }
+                                    ],
+                                    "service_account_name": true,
+                                    "serving_state": true,
+                                    "timeout_seconds": true,
+                                    "volumes": []
+                                }
+                            ]
+                        }
+                    ],
+                    "traffic": [
+                        {
+                            "url": true
+                        }
+                    ]
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "metadata": [],
+                    "status": [],
+                    "template": [
+                        {
+                            "metadata": [],
+                            "spec": [
+                                {
+                                    "containers": [
+                                        {
+                                            "env": [],
+                                            "env_from": [],
+                                            "ports": [],
+                                            "resources": [],
+                                            "volume_mounts": []
+                                        }
+                                    ],
+                                    "volumes": []
+                                }
+                            ]
+                        }
+                    ],
+                    "traffic": [
+                        {}
+                    ]
+                }
+            }
+        },
+        {
+            "address": "google_service_account.bqowner",
+            "mode": "managed",
+            "type": "google_service_account",
+            "name": "bqowner",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "account_id": "bqowner",
+                    "description": null,
+                    "disabled": false,
+                    "display_name": null,
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "email": true,
+                    "id": true,
+                    "member": true,
+                    "name": true,
+                    "project": true,
+                    "unique_id": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "google_storage_bucket.default",
+            "mode": "managed",
+            "type": "google_storage_bucket",
+            "name": "default",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "autoclass": [],
+                    "cors": [],
+                    "custom_placement_config": [],
+                    "default_event_based_hold": null,
+                    "encryption": [],
+                    "force_destroy": false,
+                    "labels": null,
+                    "lifecycle_rule": [],
+                    "location": "US-CENTRAL1",
+                    "logging": [],
+                    "name": "bucket-odi-gcp6",
+                    "requester_pays": null,
+                    "retention_policy": [],
+                    "storage_class": "REGIONAL",
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "autoclass": [],
+                    "cors": [],
+                    "custom_placement_config": [],
+                    "encryption": [],
+                    "id": true,
+                    "lifecycle_rule": [],
+                    "logging": [],
+                    "project": true,
+                    "public_access_prevention": true,
+                    "retention_policy": [],
+                    "self_link": true,
+                    "uniform_bucket_level_access": true,
+                    "url": true,
+                    "versioning": true,
+                    "website": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "autoclass": [],
+                    "cors": [],
+                    "custom_placement_config": [],
+                    "encryption": [],
+                    "lifecycle_rule": [],
+                    "logging": [],
+                    "retention_policy": [],
+                    "versioning": [],
+                    "website": []
+                }
+            }
+        },
+        {
+            "address": "module.pubsub.google_project_iam_member.token_creator_binding[0]",
+            "module_address": "module.pubsub",
+            "mode": "managed",
+            "type": "google_project_iam_member",
+            "name": "token_creator_binding",
+            "index": 0,
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "condition": [],
+                    "member": "serviceAccount:service-612361867957@gcp-sa-pubsub.iam.gserviceaccount.com",
+                    "project": "odi-gcp6",
+                    "role": "roles/iam.serviceAccountTokenCreator"
+                },
+                "after_unknown": {
+                    "condition": [],
+                    "etag": true,
+                    "id": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "condition": []
+                }
+            }
+        },
+        {
+            "address": "module.pubsub.google_pubsub_topic.topic[0]",
+            "module_address": "module.pubsub",
+            "mode": "managed",
+            "type": "google_pubsub_topic",
+            "name": "topic",
+            "index": 0,
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "kms_key_name": null,
+                    "labels": null,
+                    "message_retention_duration": null,
+                    "name": "file_receive",
+                    "project": "odi-gcp6",
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "id": true,
+                    "message_storage_policy": true,
+                    "schema_settings": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "message_storage_policy": [],
+                    "schema_settings": []
+                }
+            }
+        }
+    ],
+    "prior_state": {
+        "format_version": "1.0",
+        "terraform_version": "1.4.2",
+        "values": {
+            "root_module": {
+                "child_modules": [
+                    {
+                        "resources": [
+                            {
+                                "address": "module.pubsub.data.google_project.project",
+                                "mode": "data",
+                                "type": "google_project",
+                                "name": "project",
+                                "provider_name": "registry.terraform.io/hashicorp/google",
+                                "schema_version": 0,
+                                "values": {
+                                    "auto_create_network": null,
+                                    "billing_account": null,
+                                    "folder_id": null,
+                                    "id": "projects/odi-gcp6",
+                                    "labels": {},
+                                    "name": "odi-gcp6",
+                                    "number": "612361867957",
+                                    "org_id": null,
+                                    "project_id": "odi-gcp6",
+                                    "skip_delete": null
+                                },
+                                "sensitive_values": {
+                                    "labels": {}
+                                }
+                            }
+                        ],
+                        "address": "module.pubsub"
+                    }
+                ]
+            }
+        }
+    },
+    "configuration": {
+        "provider_config": {
+            "google": {
+                "name": "google",
+                "full_name": "registry.terraform.io/hashicorp/google",
+                "version_constraint": "4.48.0",
+                "expressions": {
+                    "credentials": {
+                        "references": [
+                            "var.credentials_file"
+                        ]
+                    },
+                    "project": {
+                        "references": [
+                            "var.project"
+                        ]
+                    },
+                    "region": {
+                        "references": [
+                            "var.region"
+                        ]
+                    },
+                    "zone": {
+                        "references": [
+                            "var.zone"
+                        ]
+                    }
+                }
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "google_bigquery_dataset.dataset",
+                    "mode": "managed",
+                    "type": "google_bigquery_dataset",
+                    "name": "dataset",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "access": [
+                            {
+                                "role": {
+                                    "constant_value": "OWNER"
+                                },
+                                "user_by_email": {
+                                    "references": [
+                                        "google_service_account.bqowner.email",
+                                        "google_service_account.bqowner"
+                                    ]
+                                }
+                            },
+                            {
+                                "domain": {
+                                    "constant_value": "hashicorp.com"
+                                },
+                                "role": {
+                                    "constant_value": "READER"
+                                }
+                            }
+                        ],
+                        "dataset_id": {
+                            "constant_value": "example_dataset"
+                        },
+                        "default_table_expiration_ms": {
+                            "constant_value": 3600000
+                        },
+                        "description": {
+                            "constant_value": "This is a test description"
+                        },
+                        "friendly_name": {
+                            "constant_value": "test"
+                        },
+                        "labels": {
+                            "constant_value": {
+                                "env": "default"
+                            }
+                        },
+                        "location": {
+                            "constant_value": "EU"
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "google_cloud_run_service.default",
+                    "mode": "managed",
+                    "type": "google_cloud_run_service",
+                    "name": "default",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "location": {
+                            "constant_value": "us-central1"
+                        },
+                        "name": {
+                            "constant_value": "cloudrun-srv"
+                        },
+                        "template": [
+                            {
+                                "spec": [
+                                    {
+                                        "containers": [
+                                            {
+                                                "image": {
+                                                    "constant_value": "us-docker.pkg.dev/cloudrun/container/hello"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "traffic": [
+                            {
+                                "latest_revision": {
+                                    "constant_value": true
+                                },
+                                "percent": {
+                                    "constant_value": 100
+                                }
+                            }
+                        ]
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "google_service_account.bqowner",
+                    "mode": "managed",
+                    "type": "google_service_account",
+                    "name": "bqowner",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "account_id": {
+                            "constant_value": "bqowner"
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "google_storage_bucket.default",
+                    "mode": "managed",
+                    "type": "google_storage_bucket",
+                    "name": "default",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "location": {
+                            "references": [
+                                "var.bucket_location"
+                            ]
+                        },
+                        "name": {
+                            "references": [
+                                "var.bucket_name"
+                            ]
+                        },
+                        "storage_class": {
+                            "references": [
+                                "var.storage_class"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ],
+            "module_calls": {
+                "pubsub": {
+                    "source": "terraform-google-modules/pubsub/google",
+                    "expressions": {
+                        "project_id": {
+                            "references": [
+                                "var.project_id"
+                            ]
+                        },
+                        "topic": {
+                            "references": [
+                                "var.file_receive_topic"
+                            ]
+                        }
+                    },
+                    "module": {
+                        "outputs": {
+                            "id": {
+                                "expression": {
+                                    "references": [
+                                        "google_pubsub_topic.topic",
+                                        "google_pubsub_topic.topic[0].id",
+                                        "google_pubsub_topic.topic[0]",
+                                        "google_pubsub_topic.topic"
+                                    ]
+                                },
+                                "description": "The ID of the Pub/Sub topic"
+                            },
+                            "subscription_names": {
+                                "expression": {
+                                    "references": [
+                                        "google_pubsub_subscription.push_subscriptions",
+                                        "google_pubsub_subscription.pull_subscriptions",
+                                        "google_pubsub_subscription.bigquery_subscriptions"
+                                    ]
+                                },
+                                "description": "The name list of Pub/Sub subscriptions"
+                            },
+                            "subscription_paths": {
+                                "expression": {
+                                    "references": [
+                                        "google_pubsub_subscription.push_subscriptions",
+                                        "google_pubsub_subscription.pull_subscriptions",
+                                        "google_pubsub_subscription.bigquery_subscriptions"
+                                    ]
+                                },
+                                "description": "The path list of Pub/Sub subscriptions"
+                            },
+                            "topic": {
+                                "expression": {
+                                    "references": [
+                                        "google_pubsub_topic.topic",
+                                        "google_pubsub_topic.topic[0].name",
+                                        "google_pubsub_topic.topic[0]",
+                                        "google_pubsub_topic.topic"
+                                    ]
+                                },
+                                "description": "The name of the Pub/Sub topic"
+                            },
+                            "topic_labels": {
+                                "expression": {
+                                    "references": [
+                                        "google_pubsub_topic.topic",
+                                        "google_pubsub_topic.topic[0].labels",
+                                        "google_pubsub_topic.topic[0]",
+                                        "google_pubsub_topic.topic"
+                                    ]
+                                },
+                                "description": "Labels assigned to the Pub/Sub topic"
+                            },
+                            "uri": {
+                                "expression": {
+                                    "references": [
+                                        "google_pubsub_topic.topic",
+                                        "google_pubsub_topic.topic[0].id",
+                                        "google_pubsub_topic.topic[0]",
+                                        "google_pubsub_topic.topic"
+                                    ]
+                                },
+                                "description": "The URI of the Pub/Sub topic"
+                            }
+                        },
+                        "resources": [
+                            {
+                                "address": "google_project_iam_member.bigquery_data_editor_binding",
+                                "mode": "managed",
+                                "type": "google_project_iam_member",
+                                "name": "bigquery_data_editor_binding",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "local.pubsub_svc_account_email"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/bigquery.dataEditor"
+                                    }
+                                },
+                                "schema_version": 0,
+                                "count_expression": {
+                                    "references": [
+                                        "var.bigquery_subscriptions"
+                                    ]
+                                }
+                            },
+                            {
+                                "address": "google_project_iam_member.bigquery_metadata_viewer_binding",
+                                "mode": "managed",
+                                "type": "google_project_iam_member",
+                                "name": "bigquery_metadata_viewer_binding",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "local.pubsub_svc_account_email"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/bigquery.metadataViewer"
+                                    }
+                                },
+                                "schema_version": 0,
+                                "count_expression": {
+                                    "references": [
+                                        "var.bigquery_subscriptions"
+                                    ]
+                                }
+                            },
+                            {
+                                "address": "google_project_iam_member.token_creator_binding",
+                                "mode": "managed",
+                                "type": "google_project_iam_member",
+                                "name": "token_creator_binding",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "local.pubsub_svc_account_email"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/iam.serviceAccountTokenCreator"
+                                    }
+                                },
+                                "schema_version": 0,
+                                "count_expression": {
+                                    "references": [
+                                        "var.grant_token_creator"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_subscription.push_subscriptions"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_schema.schema",
+                                "mode": "managed",
+                                "type": "google_pubsub_schema",
+                                "name": "schema",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "definition": {
+                                        "references": [
+                                            "var.schema.definition",
+                                            "var.schema"
+                                        ]
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "var.schema.name",
+                                            "var.schema"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "type": {
+                                        "references": [
+                                            "var.schema.type",
+                                            "var.schema"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "count_expression": {
+                                    "references": [
+                                        "var.schema"
+                                    ]
+                                }
+                            },
+                            {
+                                "address": "google_pubsub_subscription.bigquery_subscriptions",
+                                "mode": "managed",
+                                "type": "google_pubsub_subscription",
+                                "name": "bigquery_subscriptions",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "ack_deadline_seconds": {
+                                        "references": [
+                                            "each.value",
+                                            "local.default_ack_deadline_seconds"
+                                        ]
+                                    },
+                                    "bigquery_config": [
+                                        {
+                                            "drop_unknown_fields": {
+                                                "references": [
+                                                    "each.value"
+                                                ]
+                                            },
+                                            "table": {
+                                                "references": [
+                                                    "each.value[\"table\"]",
+                                                    "each.value"
+                                                ]
+                                            },
+                                            "use_topic_schema": {
+                                                "references": [
+                                                    "each.value"
+                                                ]
+                                            },
+                                            "write_metadata": {
+                                                "references": [
+                                                    "each.value"
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "enable_message_ordering": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "filter": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "labels": {
+                                        "references": [
+                                            "var.subscription_labels"
+                                        ]
+                                    },
+                                    "message_retention_duration": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "each.value.name",
+                                            "each.value"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "retain_acked_messages": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "topic": {
+                                        "references": [
+                                            "var.create_topic",
+                                            "google_pubsub_topic.topic[0].name",
+                                            "google_pubsub_topic.topic[0]",
+                                            "google_pubsub_topic.topic",
+                                            "var.topic"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_subscriptions",
+                                        "var.bigquery_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_topic.topic",
+                                    "google_project_iam_member.bigquery_metadata_viewer_binding",
+                                    "google_project_iam_member.bigquery_data_editor_binding"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_subscription.pull_subscriptions",
+                                "mode": "managed",
+                                "type": "google_pubsub_subscription",
+                                "name": "pull_subscriptions",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "ack_deadline_seconds": {
+                                        "references": [
+                                            "each.value",
+                                            "local.default_ack_deadline_seconds"
+                                        ]
+                                    },
+                                    "enable_exactly_once_delivery": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "enable_message_ordering": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "filter": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "labels": {
+                                        "references": [
+                                            "var.subscription_labels"
+                                        ]
+                                    },
+                                    "message_retention_duration": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "each.value.name",
+                                            "each.value"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "retain_acked_messages": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "topic": {
+                                        "references": [
+                                            "var.create_topic",
+                                            "google_pubsub_topic.topic[0].name",
+                                            "google_pubsub_topic.topic[0]",
+                                            "google_pubsub_topic.topic",
+                                            "var.topic"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_subscriptions",
+                                        "var.pull_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_topic.topic"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_subscription.push_subscriptions",
+                                "mode": "managed",
+                                "type": "google_pubsub_subscription",
+                                "name": "push_subscriptions",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "ack_deadline_seconds": {
+                                        "references": [
+                                            "each.value",
+                                            "local.default_ack_deadline_seconds"
+                                        ]
+                                    },
+                                    "filter": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "labels": {
+                                        "references": [
+                                            "var.subscription_labels"
+                                        ]
+                                    },
+                                    "message_retention_duration": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "each.value.name",
+                                            "each.value"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "push_config": [
+                                        {
+                                            "attributes": {
+                                                "references": [
+                                                    "each.value"
+                                                ]
+                                            },
+                                            "push_endpoint": {
+                                                "references": [
+                                                    "each.value[\"push_endpoint\"]",
+                                                    "each.value"
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "retain_acked_messages": {
+                                        "references": [
+                                            "each.value"
+                                        ]
+                                    },
+                                    "topic": {
+                                        "references": [
+                                            "var.create_topic",
+                                            "google_pubsub_topic.topic[0].name",
+                                            "google_pubsub_topic.topic[0]",
+                                            "google_pubsub_topic.topic",
+                                            "var.topic"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_subscriptions",
+                                        "var.push_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_topic.topic"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_subscription_iam_member.pull_subscription_binding",
+                                "mode": "managed",
+                                "type": "google_pubsub_subscription_iam_member",
+                                "name": "pull_subscription_binding",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "local.pubsub_svc_account_email"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/pubsub.subscriber"
+                                    },
+                                    "subscription": {
+                                        "references": [
+                                            "each.value.name",
+                                            "each.value"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_subscriptions",
+                                        "var.pull_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_subscription.pull_subscriptions"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_subscription_iam_member.pull_subscription_sa_binding_subscriber",
+                                "mode": "managed",
+                                "type": "google_pubsub_subscription_iam_member",
+                                "name": "pull_subscription_sa_binding_subscriber",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "each.value.service_account",
+                                            "each.value"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/pubsub.subscriber"
+                                    },
+                                    "subscription": {
+                                        "references": [
+                                            "each.value.name",
+                                            "each.value"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_subscriptions",
+                                        "var.pull_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_subscription.pull_subscriptions"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_subscription_iam_member.pull_subscription_sa_binding_viewer",
+                                "mode": "managed",
+                                "type": "google_pubsub_subscription_iam_member",
+                                "name": "pull_subscription_sa_binding_viewer",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "each.value.service_account",
+                                            "each.value"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/pubsub.viewer"
+                                    },
+                                    "subscription": {
+                                        "references": [
+                                            "each.value.name",
+                                            "each.value"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_subscriptions",
+                                        "var.pull_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_subscription.pull_subscriptions"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_subscription_iam_member.push_subscription_binding",
+                                "mode": "managed",
+                                "type": "google_pubsub_subscription_iam_member",
+                                "name": "push_subscription_binding",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "local.pubsub_svc_account_email"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/pubsub.subscriber"
+                                    },
+                                    "subscription": {
+                                        "references": [
+                                            "each.value.name",
+                                            "each.value"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_subscriptions",
+                                        "var.push_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_subscription.push_subscriptions"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_topic.topic",
+                                "mode": "managed",
+                                "type": "google_pubsub_topic",
+                                "name": "topic",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "kms_key_name": {
+                                        "references": [
+                                            "var.topic_kms_key_name"
+                                        ]
+                                    },
+                                    "labels": {
+                                        "references": [
+                                            "var.topic_labels"
+                                        ]
+                                    },
+                                    "message_retention_duration": {
+                                        "references": [
+                                            "var.topic_message_retention_duration"
+                                        ]
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "var.topic"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "count_expression": {
+                                    "references": [
+                                        "var.create_topic"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_schema.schema"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_topic_iam_member.pull_topic_binding",
+                                "mode": "managed",
+                                "type": "google_pubsub_topic_iam_member",
+                                "name": "pull_topic_binding",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "local.pubsub_svc_account_email"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/pubsub.publisher"
+                                    },
+                                    "topic": {
+                                        "references": [
+                                            "each.value.dead_letter_topic",
+                                            "each.value"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_topic",
+                                        "var.pull_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_topic.topic"
+                                ]
+                            },
+                            {
+                                "address": "google_pubsub_topic_iam_member.push_topic_binding",
+                                "mode": "managed",
+                                "type": "google_pubsub_topic_iam_member",
+                                "name": "push_topic_binding",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "member": {
+                                        "references": [
+                                            "local.pubsub_svc_account_email"
+                                        ]
+                                    },
+                                    "project": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    },
+                                    "role": {
+                                        "constant_value": "roles/pubsub.publisher"
+                                    },
+                                    "topic": {
+                                        "references": [
+                                            "each.value.dead_letter_topic",
+                                            "each.value"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "for_each_expression": {
+                                    "references": [
+                                        "var.create_topic",
+                                        "var.push_subscriptions"
+                                    ]
+                                },
+                                "depends_on": [
+                                    "google_pubsub_topic.topic"
+                                ]
+                            },
+                            {
+                                "address": "data.google_project.project",
+                                "mode": "data",
+                                "type": "google_project",
+                                "name": "project",
+                                "provider_config_key": "google",
+                                "expressions": {
+                                    "project_id": {
+                                        "references": [
+                                            "var.project_id"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0
+                            }
+                        ],
+                        "variables": {
+                            "bigquery_subscriptions": {
+                                "default": [],
+                                "description": "The list of the bigquery push subscriptions."
+                            },
+                            "create_subscriptions": {
+                                "default": true,
+                                "description": "Specify true if you want to create subscriptions."
+                            },
+                            "create_topic": {
+                                "default": true,
+                                "description": "Specify true if you want to create a topic."
+                            },
+                            "grant_token_creator": {
+                                "default": true,
+                                "description": "Specify true if you want to add token creator role to the default Pub/Sub SA."
+                            },
+                            "message_storage_policy": {
+                                "default": {},
+                                "description": "A map of storage policies. Default - inherit from organization's Resource Location Restriction policy."
+                            },
+                            "project_id": {
+                                "description": "The project ID to manage the Pub/Sub resources."
+                            },
+                            "pull_subscriptions": {
+                                "default": [],
+                                "description": "The list of the pull subscriptions."
+                            },
+                            "push_subscriptions": {
+                                "default": [],
+                                "description": "The list of the push subscriptions."
+                            },
+                            "schema": {
+                                "default": null,
+                                "description": "Schema for the topic."
+                            },
+                            "subscription_labels": {
+                                "default": {},
+                                "description": "A map of labels to assign to every Pub/Sub subscription."
+                            },
+                            "topic": {
+                                "description": "The Pub/Sub topic name."
+                            },
+                            "topic_kms_key_name": {
+                                "default": null,
+                                "description": "The resource name of the Cloud KMS CryptoKey to be used to protect access to messages published on this topic."
+                            },
+                            "topic_labels": {
+                                "default": {},
+                                "description": "A map of labels to assign to the Pub/Sub topic."
+                            },
+                            "topic_message_retention_duration": {
+                                "default": null,
+                                "description": "The minimum duration in seconds to retain a message after it is published to the topic."
+                            }
+                        }
+                    },
+                    "version_constraint": "5.0.0"
+                }
+            },
+            "variables": {
+                "bucket_location": {
+                    "default": "us-central1"
+                },
+                "bucket_name": {
+                    "description": "The name of our bucket"
+                },
+                "credentials_file": {},
+                "dead_letter_topic": {},
+                "file_receive_topic": {},
+                "project": {},
+                "project_id": {},
+                "pubsub_subscription_name": {},
+                "region": {
+                    "default": "us-central1"
+                },
+                "service_account_id": {},
+                "service_account_name": {},
+                "storage_class": {},
+                "zone": {
+                    "default": "us-central1-c"
+                }
+            }
+        }
+    },
+    "relevant_attributes": [
+        {
+            "resource": "module.pubsub.google_pubsub_topic.topic[0]",
+            "attribute": [
+                "id"
+            ]
+        },
+        {
+            "resource": "module.pubsub.google_pubsub_subscription.bigquery_subscriptions",
+            "attribute": []
+        },
+        {
+            "resource": "module.pubsub.data.google_project.project",
+            "attribute": [
+                "number"
+            ]
+        },
+        {
+            "resource": "module.pubsub.google_pubsub_topic.topic[0]",
+            "attribute": [
+                "name"
+            ]
+        },
+        {
+            "resource": "module.pubsub.google_pubsub_subscription.push_subscriptions",
+            "attribute": []
+        },
+        {
+            "resource": "module.pubsub.google_pubsub_subscription.pull_subscriptions",
+            "attribute": []
+        },
+        {
+            "resource": "module.pubsub.google_pubsub_schema.schema[0]",
+            "attribute": [
+                "id"
+            ]
+        },
+        {
+            "resource": "google_service_account.bqowner",
+            "attribute": [
+                "email"
+            ]
+        },
+        {
+            "resource": "module.pubsub.google_pubsub_topic.topic",
+            "attribute": []
+        }
+    ]
+}

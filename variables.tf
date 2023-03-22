@@ -17,7 +17,15 @@ variable "region" {
 variable "zone" {
   default = "us-central1-c"
 }
-
+####################
+# Service account
+####################
+variable "service_account_id" {
+  type = string
+}
+variable "service_account_name" {
+  type = string
+}
 ####################
 #sub
 ####################
